@@ -7,9 +7,14 @@ import os
 from google.oauth2 import service_account
 import googleapiclient.discovery
 import base64
+import smtplib,socket,os,sys
+import time
 
 app = Flask(__name__)
 app.debug = True
+
+
+LinuxIP="/sbin/ifconfig"
 
 #check in visio cloud google
 def testGoogleVissio(imagefile):
@@ -74,7 +79,9 @@ def Classifier():
 
 def helloInscript():
     dataName = requests.get("https://routerint.mignolet.fr/linkInstance")
-    print(dataName.json())
+    print(dataName)
+    ip = socket.gethostbyname_ex(socket.gethostname())
+    print(ip)
 
 
 if __name__ == '__main__':
