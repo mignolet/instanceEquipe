@@ -13,7 +13,8 @@ import time
 app = Flask(__name__)
 app.debug = True
 
-
+admin = os.environ.get("LOGINCOUCHDB")
+pwd = os.environ.get("PWDCOUCHDB")
 LinuxIP="/sbin/ifconfig"
 
 #check in visio cloud google
@@ -72,7 +73,7 @@ def Classifier():
         idDevice = jsonData["Device_id"]
         jsonDataObjet = '{"idDevice": "'+str(idDevice)+'", "label": "'+labelObjet+'"}'
         #insert in couchdb
-        r = requests.put("https://couchdb.mignolet.fr/objetfinddb/'objetFind34'", data=jsonDataObjet)
+        r = requests.put("https://couchdb.mignolet.fr/objetfinddb/'objetFind"+str(numObjetFind+1)+"'", data=jsonDataObjet)
         print(r.json())
     return json_response(r.json(),r.status_code)
 
@@ -82,7 +83,9 @@ def helloInscript():
     print(dataName)
     ip = socket.gethostbyname_ex(socket.gethostname())
     print(ip)
-
+    jsonIP = '{"ip": "'+ip[2][0]+'"}'
+    ipSend = requests.put("https://couchdb.mignolet.fr/instanceteamdb/"+str(ip[0])+"", data=jsonIP)
+    print(ipSend.json())
 
 if __name__ == '__main__':
     helloInscript()
