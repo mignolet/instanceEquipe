@@ -77,15 +77,13 @@ def Classifier():
         print(r.json())
     return json_response(r.json(),r.status_code)
 
-
+#link team and instance
 def helloInscript():
-    dataName = requests.get("https://routerint.mignolet.fr/linkInstance")
-    print(dataName)
     ip = socket.gethostbyname_ex(socket.gethostname())
     print(ip)
     jsonIP = '{"ip": "'+ip[2][0]+'"}'
-    ipSend = requests.put("https://couchdb.mignolet.fr/instanceteamdb/"+str(ip[0])+"", data=jsonIP)
-    print(ipSend.json())
+    ipSend = requests.post("https://routerint.mignolet.fr/linkInstance", data=jsonIP)
+    print(ipSend)
 
 if __name__ == '__main__':
     helloInscript()
