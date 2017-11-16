@@ -54,7 +54,7 @@ def testGoogleVissio(imagefile):
 #check picture objet
 #test in visio cloud google
 #insert couchdb objetfind
-@app.route('/Classifier')
+@app.route('/Classifier', methods=["POST"])
 def Classifier():
     jsonData = requests.get_json(force=True)
     print(jsonData)
