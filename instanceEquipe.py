@@ -49,7 +49,7 @@ def testGoogleVissio(imagefile):
 
     # Récupération de la déduction de l'image par Google
     label = response['responses'][0]['labelAnnotations'][0]['description']
-
+    print(label)
     return label
 
 #check picture objet
@@ -63,26 +63,10 @@ def Classifier():
     #print(jsonData["image"])
     labelObjet = testGoogleVissio(jsonData["image"])
 
- 
+
     #check reponse
     print(labelObjet)
-    if jsonData["name"] == labelObjet:
-        print("check reussi")
-        #check number objet find
-        teamrequest = requests.get("https://couchdb.mignolet.fr/objetfinddb/_design/_all_obsearch/_view/all")
-        print(teamrequest.json())
-        numObjetFind = json.loads(teamrequest.content)
-        print(numObjetFind["rows"][0]["value"])
-        #start json for couchdb
-        idDevice = jsonData["Device_id"]
-        jsonDataObjet = '{"idDevice": "'+str(idDevice)+'", "label": "'+labelObjet+'"}'
-        #insert in couchdb
-        r = requests.put("https://couchdb.mignolet.fr/objetfinddb/'objetFind"+str(numObjetFind+1)+"'", data=jsonDataObjet)
-        print(r.json())
-        return True
-    else:
-        print("check false")
-        return False
+    return json_response("true")
 
 
 @app.route('/saveImage')
