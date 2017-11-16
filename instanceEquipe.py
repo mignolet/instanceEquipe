@@ -19,8 +19,9 @@ LinuxIP="/sbin/ifconfig"
 
 #check in visio cloud google
 def testGoogleVissio(imagefile):
+    print(imagefile)
     # Appel de la fonction de scan par Google
-    credentials = service_account.Credentials.from_service_account_file('config/visio.json')
+    credentials = service_account.Credentials.from_service_account_file('../visio.json')
 
     # Authentification par Google
     service = googleapiclient.discovery.build('vision', 'v1', credentials=credentials)
@@ -49,7 +50,7 @@ def testGoogleVissio(imagefile):
 
     # Récupération de la déduction de l'image par Google
     label = response['responses'][0]['labelAnnotations'][0]['description']
-    print(label)
+    print("test google fini")
     return label
 
 #check picture objet
@@ -58,28 +59,72 @@ def testGoogleVissio(imagefile):
 @app.route('/Classifier', methods=["POST"])
 def Classifier():
     jsonData = request.get_json(force=True)
-    #print(jsonData)
-
+    print(jsonData)
     #print(jsonData["image"])
     labelObjet = testGoogleVissio(jsonData["image"])
 
-
     #check reponse
     print(labelObjet)
-    return json_response("true")
+    print(jsonData["name"])
+
+    if jsonData["name"] == labelObjet:
+        print("check reussi")
+        saveImage(jsonData)
+        #check number objet find
+        teamrequest = requests.get("https://couchdb.mignolet.fr/objetfinddb/_design/_all_obsearch/_view/all")
+        print(teamrequest.json())
+        numObjetFind = json.loads(teamrequest.content)
+        print(numObjetFind["rows"][0]["value"])
+        #start json for couchdb
+        idDevice = jsonData["id_Equipe"]
+        jsonDataObjet = '{"idDevice": "'+str(idDevice)+'", "label": "'+str(labelObjet)+'"}'
+        print(jsonDataObjet)
+        #insert in couchdb
+        r = requests.put("https://couchdb.mignolet.fr/objetfinddb/'objetFind"+str(numObjetFind["rows"][0]["value"]+1)+"'", data=jsonDataObjet)
+        print(r.json())
+        return json_response("true")
+    else:
+        print("check false")
+        return json_response("False")
+
+def readImageJson():
+    data = json.load(open("image.json"))
+    print("json fichier :"+str(data))
+    return data
 
 
-@app.route('/saveImage')
-def saveImage():
+#@app.route('/saveImage', methods=["POST"])
+def saveImage(jsonImage):
+    #get json
+    #jsonImage = request.get_json(force=True)
+    print(jsonImage)
+    print(json.dumps(jsonImage))
+    dataFiles = readImageJson()
+    print("file:"+str(dataFiles))
+
+    #send json
+    data = json.loads(dataFiles)
+    print(data["objetFinb"])
+    data["objetFinb"].append(jsonImage)
+    print(data)
+    jsonfile = json.dumps(data)
+    #print(jsonfile)
+    #write
+    with open("image.json", "w") as f_write:
+        json.dump(jsonfile, f_write)
     return "save photo"
-
-
 
 @app.route('/getImage')
 def getImage():
-    return "retour photo"
+    json = readImageJson()
+    return json
 
-
+#init json file
+def init():
+    jsonfile = '{"objetFinb" : []}'
+    with open("image.json", "w") as f_write:
+        json.dump(jsonfile, f_write)
+    print("init fichier json")
 
 
 #link team and instance
@@ -91,6 +136,7 @@ def helloInscript():
     print(ipSend)
 
 if __name__ == '__main__':
-    helloInscript()
+    #helloInscript()
+    init()
     app.run(host='0.0.0.0', port=5000)
 
