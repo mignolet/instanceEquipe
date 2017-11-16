@@ -56,7 +56,7 @@ def testGoogleVissio(imagefile):
 #insert couchdb objetfind
 @app.route('/Classifier', methods=["POST"])
 def Classifier():
-    jsonData = requests.get_json(force=True)
+    jsonData = request.get_json(force=True)
     print(jsonData)
     #get picture
     #imagefile = request.files['file']
