@@ -20,7 +20,7 @@ LinuxIP="/sbin/ifconfig"
 #check in visio cloud google
 def testGoogleVissio(imagefile):
     # Appel de la fonction de scan par Google
-    credentials = service_account.Credentials.from_service_account_file('visio.json')
+    credentials = service_account.Credentials.from_service_account_file('config/visio.json')
 
     # Authentification par Google
     service = googleapiclient.discovery.build('vision', 'v1', credentials=credentials)
@@ -33,7 +33,7 @@ def testGoogleVissio(imagefile):
     service_request = service.images().annotate(body={
         'requests': [{
             'image': {
-                'content': imagefile.decode('UTF-8')
+                'content': imagefile
             },
             'features': [{
                 'type': 'LABEL_DETECTION',
@@ -45,6 +45,7 @@ def testGoogleVissio(imagefile):
     # Envoie de la requête et réception du résultat
 
     response = service_request.execute()
+    print(response)
 
     # Récupération de la déduction de l'image par Google
     label = response['responses'][0]['labelAnnotations'][0]['description']

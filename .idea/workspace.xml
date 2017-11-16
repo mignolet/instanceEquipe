@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d368f22-6015-4cb4-8deb-2384d401c149" name="Default" comment="" />
+    <list default="true" id="3d368f22-6015-4cb4-8deb-2384d401c149" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/vi.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/visio.json" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instanceEquipe.py" afterPath="$PROJECT_DIR$/instanceEquipe.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,34 +19,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="instanceEquipe.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="instanceEquipe.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanceEquipe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+            <state relative-caret-position="520">
+              <caret line="62" column="28" lean-forward="true" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
               <folding>
                 <element signature="e#24#87#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="vi.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vi.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="visio.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/visio.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -257,21 +242,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instanceEquipe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="24" lean-forward="true" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
-          <folding>
-            <element signature="e#24#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vi.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instanceEquipe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="62" column="28" lean-forward="true" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+          <folding>
+            <element signature="e#24#87#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
