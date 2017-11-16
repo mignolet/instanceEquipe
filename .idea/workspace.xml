@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d368f22-6015-4cb4-8deb-2384d401c149" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/vi.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/visio.json" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/instanceEquipe.py" afterPath="$PROJECT_DIR$/instanceEquipe.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,8 +19,8 @@
       <file leaf-file-name="instanceEquipe.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/instanceEquipe.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="62" column="28" lean-forward="true" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+            <state relative-caret-position="566">
+              <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
               <folding>
                 <element signature="e#24#87#0" expanded="true" />
               </folding>
@@ -252,8 +249,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/instanceEquipe.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="62" column="28" lean-forward="true" selection-start-line="62" selection-start-column="28" selection-end-line="62" selection-end-column="28" />
+        <state relative-caret-position="566">
+          <caret line="65" column="1" lean-forward="false" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
           <folding>
             <element signature="e#24#87#0" expanded="true" />
           </folding>
