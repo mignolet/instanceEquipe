@@ -132,7 +132,7 @@ def helloInscript():
     ip = socket.gethostbyname_ex(socket.gethostname())
     print(ip)
     jsonIP = '{"ip": "'+ip[2][0]+'"}'
-    ipSend = requests.post("https://routerint.mignolet.fr/linkInstance", data=jsonIP)
+    ipSend = requests.post("http://51.254.121.94:4000/linkInstance", data=jsonIP)
     print(ipSend)
 
 if __name__ == '__main__':
