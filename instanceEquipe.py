@@ -13,8 +13,6 @@ import time
 app = Flask(__name__)
 app.debug = True
 
-admin = os.environ.get("LOGINCOUCHDB")
-pwd = os.environ.get("PWDCOUCHDB")
 LinuxIP="/sbin/ifconfig"
 
 #check in visio cloud google
